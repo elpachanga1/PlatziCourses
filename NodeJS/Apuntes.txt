@@ -1,0 +1,11 @@
+//comando para crear proyecto node
+npm init
+
+//comando para correr aplicaciones NODEJS
+nodemon "NombreArchivo"
+
+//librerias a instalar
+npm install express //libreria para despliegue de servidores
+npm install -g nodemon //libreria para que el proyecto se refresque solo
+npm install body-parser //libreria para manejo de JSON
+npm install socket.io   //libreria que maneja websockets

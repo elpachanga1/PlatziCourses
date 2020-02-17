@@ -1,0 +1,17 @@
+genera proyecto gatsby desde cero
+	- npm init -y
+	- npm i react gatsby react-dom
+	- npm i -g gatsby-cli
+
+genera proyecto gatsby en blanco
+	- gatsby new PruebaGatsbyPachanga
+
+genera proyecto gatsby con templates:
+	si entras al siguiente link y revisas los proyectos starters:
+		- https://www.gatsbyjs.org
+	puedes descargarlos y usarlos como plantillas para tus proyectos mediante el siguiente comando
+		- gatsby new blog gatsbyjs/gatsby-starter-blog
+		- gatsby new {proyect name} {author}/{tmeplate name}
+
+arrancar proyecto
+	- gatsby develop
