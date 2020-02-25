@@ -12,4 +12,8 @@ router(app);
 
 app.use("/app", express.static("public")); //gracias a esto se pueden llamar recursos estaticos desde la carpeta public
 app.listen(3000);
+
+setTimeout(function() {
+  console.log("time");
+}, 100);
 console.log("la app esta escuchando en http://localhost:3000");
