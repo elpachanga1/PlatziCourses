@@ -1,0 +1,30 @@
+{
+  "name": "webpack-4",
+  "version": "1.0.0",
+  "description": "proyecto de pruebas para Webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "build_dev_extendido": "webpack --entry ./index.js --output ./bundle.js --mode development",
+    "build_production": "webpack --mode --production",
+    "build_external": "webpack --config ./Compilados/external/webpack_external.config.js",
+    "build_multi": "webpack --config ./Compilados/multi_entry_points/webpack.config.js",
+    "build_css": "webpack --config ./Compilados/css_loaders/webpack.config.js",
+    "build_plugins": "webpack --config ./Compilados/with_plugins/webpack.config.js",
+    "build_dev": "webpack-dev-server --config ./Compilados/dev_server/webpack.config.js"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "elpachanga1",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

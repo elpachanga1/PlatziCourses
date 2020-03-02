@@ -1,0 +1,34 @@
+//dependencias para curso de Webpack
+npm install webpack --save-dev  //empaquetador de archivos JS, HTML, CSS e imagenes para optimizar render ante el navegador
+npm install webpack-cli --save-dev  //command line interface necesario para webpack
+npm install --save-dev css-loader   //libreria loader para cargar css y que no se estalle
+npm install --save-dev style-loader    //libreria loader para importar el css
+npm install mini-css-extract-plugin html-webpack-plugin --save-dev  //libreria plugin para extraer css y libreria plugin para manejo html
+npm install --save-dev webpack-dev-server   //libreria de webpack para que no se necesite recargar la pagina cuando se ejecute un cambio en codigo
+
+--save-dev  //salva version de paquete npm para desarrollo
+--save-exact    //salva version exacta del paquete npm
+
+//comando para crear un bundle de empaquetado webpack
+npx webpack --entry ./index.js --output ./bundle.js --mode development
+
+//explicacion
+npx //ejecuta paquete npm localmente
+--entry //archivos a empaquetar 
+--output    //archivo de salida
+--mode  //modo desarrollo o produccion
+
+//tambien se pueden configurar los parametros de webpack por un archivo externo llamado webpack.config.js y se llamaria el empaquetado solo con npx webpack
+
+//etiquetas para manejo de nombres de archivos
+[name]  //para copiar el nombre del archivo .js en el bundle
+
+//comando para ejecutar webpack y que este tome cada cambio que se genere en los archivos
+//1.
+npm run build_dev -- -w
+
+//2.
+instalando webpack-dev-server no se necesita el comando -w para que este refresque los cambio y ademas refresca la pagina cuando se edite por completo (asi como en ReactJS)
+
+build_dev   //comando de build configurado en package.json para el compilado del proyecto
+-- -w   //con esta adicion webpack escuchara los cambios que se realicen en el codigo de la aplicacion
