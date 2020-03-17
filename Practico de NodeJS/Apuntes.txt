@@ -1,0 +1,5 @@
+//editor web para documentar codigo
+editor.swagger.io
+
+//despues de generar el json se guarda y se descarga libreria para visualizar doucmentacion
+npm i swagger-ui-express
