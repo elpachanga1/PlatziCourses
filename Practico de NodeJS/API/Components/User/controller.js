@@ -1,38 +1,45 @@
-const nanoid = require('nanoid');
+//logica de negocios
+const nanoid = require("nanoid");
+const auth = require("../Auth");
 
 const TABLA = "user";
 
-module.exports = function (injectedStore) {
-    let store = injectedStore;
-    if (!store) {
-        store = require('../../../Store/dummy');
+module.exports = function(injectedStore) {
+  let store = injectedStore;
+  if (!store) {
+    store = require("../../../Store/dummy");
+  }
+
+  function list() {
+    return store.list(TABLA);
+  }
+
+  function get(id) {
+    return store.get(TABLA, id);
+  }
+
+  //funcion para crear sesiones ante el controller de sesiones
+  async function upsert(body) {
+    const user = {
+      name: body.name,
+      username: body.username,
+      id: body.id ? body.id : nanoid()
+    };
+
+    if (body.username || body.password) {
+      await auth.upsert({
+        id: user.id,
+        username: user.username,
+        password: body.password
+      });
     }
 
-    function list() {
-        return store.list(TABLA);
-    }
-    
-    function get(id) {
-        return store.get(TABLA, id);
-    }
+    return store.upsert(TABLA, user);
+  }
 
-    function upsert(body) {
-        const user = {
-            name: body.name,
-            id: (body.id) ? body.id : nanoid()
-        }
-
-        return store.upsert(TABLA, user);
-    }
-
-    function remove(id) {
-        return store.remove(TABLA, id);
-    }
-
-    return {
-        list,
-        get,
-        upsert,
-        remove
-    }
-}
+  return {
+    list,
+    get,
+    upsert
+  };
+};

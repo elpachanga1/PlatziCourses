@@ -3,3 +3,5 @@ editor.swagger.io
 
 //despues de generar el json se guarda y se descarga libreria para visualizar doucmentacion
 npm i swagger-ui-express
+npm i jsonwebtoken  //libreria java web token
+npm i bcrypt    //libreria para encriptar cositas
