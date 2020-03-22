@@ -20,9 +20,9 @@ module.exports = function(injectedStore) {
     const comment = {
       id: body.id ? body.id : nanoid(),
       paragraph: body.paragraph,
-      user_id: user,
+      user_id: body.user_id,
       stars: body.stars,
-      movie_id: movie
+      movie_id: body.movie_id
     };
 
     return body.id
@@ -30,9 +30,14 @@ module.exports = function(injectedStore) {
       : store.insert(TABLA, comment);
   }
 
+  async function remove(id) {
+    return await store.remove(TABLA, id);
+  }
+
   return {
     list,
     getPerMovie,
-    upsert
+    upsert,
+    remove
   };
 };

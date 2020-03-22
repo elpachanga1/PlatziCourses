@@ -1,7 +1,7 @@
 //logica de negocios
 const bcrypt = require("bcrypt");
 const nanoid = require("nanoid");
-const auth = require("../Auth");
+const auth = require("../../../Auth");
 
 const TABLA = "users";
 
@@ -27,8 +27,8 @@ module.exports = function(injectedStore) {
       id: body.id ? body.id : nanoid()
     };
 
-    if (data.password) {
-      user.password = await bcrypt.hash(data.password, 5);
+    if (body.password) {
+      user.password = await bcrypt.hash(body.password, 5);
     }
 
     return body.id ? store.update(TABLA, user) : store.insert(TABLA, user);
