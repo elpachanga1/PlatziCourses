@@ -20,6 +20,10 @@ const check = {
     if (decoded.id !== owner) {
       throw error("No se puede editar registro", 401);
     }
+  },
+  logged: function(req) {
+    const decoded = decodeHeader(req);
+    console.log(decoded);
   }
 };
 
