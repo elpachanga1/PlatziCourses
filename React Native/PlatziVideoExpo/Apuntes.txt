@@ -1,10 +1,5 @@
-//Cuando se necesite cambiar la IP del servidor Expo se usa el siguiente comando
-//dicho comando configura de manera estatica la IP
-//se debe correr cada vez que inicie Expo y despues reiniciar la maquina si esta cambio de IP entre encendido
-setx /M REACT_NATIVE_PACKAGER_HOSTNAME 192.168.1.59
-
 //comando para borrar cache
 expo start r -c
 
-//probar este comando
-REACT_NATIVE_PACKAGER_HOSTNAME='real host mechine ip' npm start
+//libreria para reproductor de video
+expo install expo-av

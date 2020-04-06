@@ -12,5 +12,10 @@ module.exports = {
     database: process.env.PG_DATABASE || "prueba_cafeto",
     password: process.env.PG_PASSWORD || "Datecsa2019",
     port: process.env.PG_PORT || 5432
+  },
+  postgresService: {
+    port: process.env.PG_SERVICE_PORT || 3001,
+    host: process.env.PG_SERVICE_HOST || "localhost",
+    port: process.env.PG_SERVICE_PORT || 5432
   }
 };

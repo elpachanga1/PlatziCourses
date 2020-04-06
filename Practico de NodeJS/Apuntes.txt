@@ -5,3 +5,6 @@ editor.swagger.io
 npm i swagger-ui-express
 npm i jsonwebtoken  //libreria java web token
 npm i bcrypt    //libreria para encriptar cositas
+npm i request   //un axios pero mas primitivo
+npm i -g pm2    //gestor de microservicios para NodeJS, debes de revisarlo 
+npm i redis //gestor de cache
