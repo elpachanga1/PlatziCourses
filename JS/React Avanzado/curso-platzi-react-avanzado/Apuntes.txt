@@ -1,0 +1,19 @@
+//Librerias usadas
+react-icons     //libreria para importar iconos de fontawesome, material design o cualquier otro proveedor
+styled-components   //libreria para generar componentes con estilos CSS, una combinacion poderosa y ordenada de generar elementos
+
+//Proceso para crear una imagen de logo (SVG) como componente react
+1. crear u obtener imagen SVG
+
+    con este link se pueden crear palabras o imagenes para crear logos y guardarlos en formato .SVG
+    https://maketext.io/
+
+2. optimizar SVG para quitar transparencias y cosas asi
+
+    con esta pagina se optimizan los SVG y se puede copiar el codigo fuente de la imagen
+    https://jakearchibald.github.io/svgomg/
+
+3. convertir imagen en componente de react
+
+    con la imagen copiada se ingresa a este link y se pega el codigo de la imagen SVG, despues la pagina arrojara el codigo del componente para poder usarlo en la aplicacion
+    https://react-svgr.com/playground/
