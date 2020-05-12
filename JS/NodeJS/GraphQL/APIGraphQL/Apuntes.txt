@@ -1,0 +1,7 @@
+//dependencias para GraphQL
+npm install graphql
+npm install express
+npm install express-graphql //middleware entre express y graphql
+npm install graphql-tools   //herramientas para graphql
+npm install dotenv  //libreria para asegurar credenciales
+npm install mongo   //libreria para manejar mongo (asi como mongoose)

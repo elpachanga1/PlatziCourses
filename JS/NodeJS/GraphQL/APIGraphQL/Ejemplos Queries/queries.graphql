@@ -1,0 +1,127 @@
+"select *"
+{
+  getCourses{
+    _id
+    title
+  }
+}
+
+"select with join"
+{
+  getCourses{
+    _id
+    title
+    teacher
+    description
+    topic
+    students {
+      _id
+      name
+      email
+    }
+  }
+}
+
+"2 selects simultaneuosly each one with alias"
+{
+  AllCourses: getCourses{
+    _id
+    title
+    teacher
+    description
+    topic
+    students {
+      _id
+      name
+      email
+    }
+  }
+  CourseWithStudents: getCourse(id: "5eb1d9550035024490bdc21d"){
+    _id
+    title
+  }
+}
+
+"2 selects simultaneuosly each one with alias and fragment(tag to re-use some fields)"
+{
+  AllCourses: getCourses{
+    ...outputFields
+    teacher
+    description
+    topic
+    students {
+      _id
+      name
+      email
+    }
+  }
+  CourseWithStudents: getCourse(id: "5eb1d9550035024490bdc21d"){
+    ...outputFields
+  }
+}
+
+"mutation with variables"
+mutation AddStudentToCourse2 ($course: ID! $student: ID!){
+  addStudentToCourse(CourseID: $course StudentID: $student){
+    _id
+    title
+  }
+}
+"variables"
+mutation AddStudentToCourse2 ($course: ID! $student: ID!){
+  addStudentToCourse(CourseID: $course StudentID: $student){
+    _id
+    title
+  }
+}
+
+
+
+fragment outputFields on Course {
+	_id
+  title
+}
+
+"insert foreign key"
+mutation {
+  addStudentToCourse(
+    CourseID: "5eb1d9550035024490bdc21d"
+  	StudentID: "5eb1e9dfd3a25746f488c58f"
+  ){
+    _id
+    title
+  }
+}
+
+"insert"
+mutation {
+  createStudent(input: {
+    name: "pachanga"
+    email:"pachanga@pachanga.com"
+  }){
+    _id
+    name
+    email
+  }
+}
+
+"update"
+mutation {
+  editStudent(
+  _id: "5eb1e9dfd3a25746f488c58f"  
+  input: {
+    name: "pachanga1"
+  }){
+    _id
+    name
+    email
+  }
+}
+
+"delete"
+mutation{
+  deleteCourse(_id: "5eb1d996aad625234c2b4c2b"){
+    _id
+    title
+  }
+}

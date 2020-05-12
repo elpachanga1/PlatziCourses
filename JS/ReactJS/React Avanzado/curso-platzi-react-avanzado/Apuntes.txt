@@ -2,6 +2,11 @@
 react-icons     //libreria para importar iconos de fontawesome, material design o cualquier otro proveedor
 styled-components   //libreria para generar componentes con estilos CSS, una combinacion poderosa y ordenada de generar elementos
 intersection-observer   //libreria para compatibilizar con los navegadores intersection-observer para saber que se ve y que no
+//clilente GraphQL
+apollo-boost    //libreria gestora de conexion con servidor GraphQL
+react-apollo    //libreria que permite integracion con apollo
+graphql     //libreria para lenguaje GraphQL
+
 
 //Proceso para crear una imagen de logo (SVG) como componente react
 1. crear u obtener imagen SVG

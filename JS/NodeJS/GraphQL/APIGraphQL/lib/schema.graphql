@@ -1,0 +1,81 @@
+"Valida los tipos de nivel"
+enum Level {
+  principiante
+  intermedio
+  avanzado
+}
+
+"! es un dicador para campo requerido"
+type Course {
+  _id: ID!
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
+  students: [Student]
+  level: Level
+}
+
+type Student {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+"consultas"
+type Query {
+  "Devuelve todos los cursos"
+  getCourses: [Course]
+  "Devuelve un curso"
+  getCourse(id: ID!): Course
+  "Devuelve todos los estudiantes"
+  getStudents: [Student]
+  "Devuelve un estudiante"
+  getStudent(id: ID!): Student
+}
+
+"plantilla para ingreso de cursos"
+input CourseInput {
+  title: String!
+  teacher: String
+  description: String!
+  topic: String
+  level: Level
+}
+
+input CourseUpdateInput {
+  title: String
+  teacher: String
+  description: String
+  topic: String
+  level: Level
+}
+
+"plantilla para ingreso de estudante"
+input StudentInput {
+  name: String!
+  email: String!
+}
+
+input StudentUpdateInput {
+  name: String
+  email: String
+}
+
+"mutaciones de datos"
+type Mutation {
+  "Crea un curso"
+  createCourse(input: CourseInput!): Course
+  "Edita un curso"
+  editCourse(_id: ID!, input: CourseUpdateInput): Course
+  "Crea un estudante"
+  createStudent(input: StudentInput!): Student
+  "Edita un estudiante"
+  editStudent(_id: ID!, input: StudentUpdateInput): Student
+  "Delete course"
+  deleteCourse(_id: ID!): Course
+  "Delete student"
+  deleteStudent(_id: ID!): Student
+  "Añadir estudiante a curso"
+  addStudentToCourse(CourseID: ID!, StudentID: ID!): Course
+}
