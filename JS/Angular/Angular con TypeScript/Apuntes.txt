@@ -1,0 +1,17 @@
+//dependencias necesarias
+npm install -g @angular/cli
+npm install firebase
+npm install @angular/fire angularfire2
+
+//comando para crear proyecto
+ng new NombreProyecto
+
+//comando para crear un nuevo servicio en angular
+ng g service NombreServicio
+
+//complementos para vscode
+prettier
+tslint
+eslint
+Bracket Pair Colorizer 2
+Angular Snippets
