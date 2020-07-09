@@ -12,6 +12,9 @@ ng g service NombreServicio
 //comando para crear un nuevo componente en angular
 ng g component NombreComponente
 
+//comando para revisar compilacion de angular 
+ng serve --aot
+
 //complementos para vscode
 prettier
 tslint

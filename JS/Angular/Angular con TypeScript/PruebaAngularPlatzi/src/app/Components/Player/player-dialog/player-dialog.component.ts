@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {take} from 'rxjs/operators';
 
-import { Countries, SquadNumber } from 'src/app/Interfaces/Player';
+import { Countries, SquadNumber, Player } from 'src/app/Interfaces/Player';
 import { PlayerService } from 'src/app/Services/Player/player.service';
 import { TeamService } from 'src/app/Services/Team/team.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-player-dialog',
@@ -12,8 +12,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./player-dialog.component.scss']
 })
 export class PlayerDialogComponent implements OnInit {
+  @Input() player: Player;
+  @Output() closeDialog: EventEmitter<boolean> = new EventEmitter();
+
   private team;
-  public player;
 
   public countries = Object.keys(Countries).map(key => ({
     label: key,
@@ -52,12 +54,49 @@ export class PlayerDialogComponent implements OnInit {
     this.teamService.editTeam(formattedTeam);
   }
 
+  private editPlayer(playerFormValue) {
+    const playerFormValueKey = {
+      ...playerFormValue,
+      $key: this.player.$key
+    };
+
+    const playerFormValueFormattedKey = {
+      ...playerFormValue,
+      key: this.player.$key
+    };
+
+    delete playerFormValueFormattedKey.$key;
+
+    const moddifiedPlayers = this.team.players ?
+      this.team.players.map(player => {
+        return player.key === this.player.$key ? playerFormValueFormattedKey : player;
+      }) : this.team.players;
+
+    const formattedTeam = {
+      ...this.team,
+      players: [...(moddifiedPlayers ? moddifiedPlayers : [playerFormValueFormattedKey])]
+    };
+
+    this.playerService.editPlayer(playerFormValueKey);
+    this.teamService.editTeam(formattedTeam);
+  }
+
   onSubmit(playerForm: NgForm) {
     const playerFormValue = {...playerForm.value};
     if (playerForm.valid) {
       playerFormValue.leftFooted = playerFormValue.leftFooted === '' ? false : playerFormValue.leftFooted;
     }
-    this.newPlayer(playerFormValue);
+
+    if (this.player) {
+      this.editPlayer(playerFormValue);
+    } else {
+      this.newPlayer(playerFormValue);
+    }
+
     window.location.replace('#');
+  }
+
+  onclose() {
+    this.closeDialog.emit(true);
   }
 }
