@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 
 import {Team} from '../../Interfaces/Team';
 
-export const TeamHeaders = ['name', 'country', 'Teams'];
+export const TeamHeaders = ['Name', 'Country', 'Players'];
 
 @Injectable({
   providedIn: 'root'

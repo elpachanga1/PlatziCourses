@@ -9,6 +9,9 @@ ng new NombreProyecto
 //comando para crear un nuevo servicio en angular
 ng g service NombreServicio
 
+//comando para crear un nuevo componente en angular
+ng g component NombreComponente
+
 //complementos para vscode
 prettier
 tslint
