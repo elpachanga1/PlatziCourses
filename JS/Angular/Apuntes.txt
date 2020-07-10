@@ -6,14 +6,24 @@ npm install @angular/fire angularfire2
 //comando para crear proyecto
 ng new NombreProyecto
 
-//comando para crear un nuevo servicio en angular
+//comando para crear un nuevo servicio en angular (logica)
 ng g service NombreServicio
 
-//comando para crear un nuevo componente en angular
+//comando para crear un nuevo componente en angular (componente html)
 ng g component NombreComponente
+
+//comando para crear un pipe (transformador de datos)
+ng g p NombrePipe
+ng g p pipes/exponential/exponential
+
+//comando para crear una directiva (manejo de propiedades DOM)
+ng g d NombreDirectiva
 
 //comando para revisar compilacion de angular 
 ng serve --aot
+
+//comando para revisar escritura del proyecto
+ng lint
 
 //complementos para vscode
 prettier
