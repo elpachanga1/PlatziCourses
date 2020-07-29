@@ -1,8 +1,8 @@
-import { ExponencialPipe } from './exponencial.pipe';
+import { ExponentialPipe } from './exponential.pipe';
 
 describe('ExponencialPipe', () => {
   it('create an instance', () => {
-    const pipe = new ExponencialPipe();
+    const pipe = new ExponentialPipe();
     expect(pipe).toBeTruthy();
   });
 });
