@@ -16,6 +16,12 @@ ng g component NombreComponente
 ng g p NombrePipe
 ng g p pipes/exponential/exponential
 
+//comando para crear un modulo (grupo de componentes anidados)
+ng g m NombreModulo
+
+//comando para crear un guardian (control de acceso)
+ng g g NombreGuardian
+
 //comando para crear una directiva (manejo de propiedades DOM)
 ng g d NombreDirectiva
 

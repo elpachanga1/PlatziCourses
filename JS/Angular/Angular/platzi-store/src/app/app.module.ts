@@ -4,41 +4,28 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './Components/product/product.component';
-import { CartComponent } from './Components/cart/cart.component';
-import { ExponentialPipe } from './Pipes/exponential/exponential.pipe';
-import { HighlightDirective } from './Directives/highlight/highlight.directive';
-import { HomeComponent } from './Components/home/home.component';
-import { ProductsComponent } from './Components/products/products.component';
-import { ContactComponent } from './Components/contact/contact.component';
-import { DemoComponent } from './Components/demo/demo.component';
-import { HeaderComponent } from './Components/header/header.component';
-import { BannerComponent } from './Components/banner/banner.component';
-import { FooterComponent } from './Components/footer/footer.component';
-import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
+import { ContactComponent } from './Modules/contact/contact.component';
+import { DemoComponent } from './Modules/demo/demo.component';
+import { PageNotFoundComponent } from './Modules/page-not-found/page-not-found.component';
+import { LayoutComponent } from './Modules/layout/layout.component';
+
+import { SharedModule } from './Modules/shared/shared.module';
+import { CoreModule } from './Modules/core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    CartComponent,
-    ExponentialPipe,
-    HighlightDirective,
-    HomeComponent,
-    ProductsComponent,
     ContactComponent,
     DemoComponent,
-    HeaderComponent,
-    BannerComponent,
-    FooterComponent,
     PageNotFoundComponent,
-    ProductDetailComponent
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

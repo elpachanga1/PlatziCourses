@@ -1,33 +1,37 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { ProductsComponent } from './Components/products/products.component';
-import { ContactComponent } from './Components/contact/contact.component';
-import { DemoComponent } from './Components/demo/demo.component';
-import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+
+import { ContactComponent } from './Modules/contact/contact.component';
+import { DemoComponent } from './Modules/demo/demo.component';
+import { PageNotFoundComponent } from './Modules/page-not-found/page-not-found.component';
+import { LayoutComponent } from './Modules/layout/layout.component';
+
+import { AdminGuard } from './Guardians/admin/admin.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
-  },
-  {
-    path: 'products/:id',
-    component: ProductDetailComponent
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('./Modules/home/home.module').then(mod => mod.HomeModule)
+      },
+      {
+        path: 'products',
+        loadChildren: () => import('./Modules/products/products.module').then(mod => mod.ProductsModule)
+      },
+      {
+        path: 'contact',
+        canActivate: [AdminGuard],
+        component: ContactComponent
+      }
+    ]
   },
   {
     path: 'demo',
@@ -40,7 +44,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
