@@ -8,6 +8,8 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ExponentialPipe } from './Pipes/exponential/exponential.pipe';
 import { HighlightDirective } from './Directives/highlight/highlight.directive';
 
+import { MaterialModule } from '../material/material.module';
+
 @NgModule({
   declarations: [
     ExponentialPipe,
@@ -17,7 +19,8 @@ import { HighlightDirective } from './Directives/highlight/highlight.directive';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     ExponentialPipe,

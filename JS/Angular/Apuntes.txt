@@ -2,6 +2,9 @@
 npm install -g @angular/cli
 npm install firebase
 npm install @angular/fire angularfire2
+npm install flexboxgrid
+ng add @angular/material
+ng add @angular/cdk
 
 //comando para crear proyecto
 ng new NombreProyecto
@@ -18,12 +21,19 @@ ng g p pipes/exponential/exponential
 
 //comando para crear un modulo (grupo de componentes anidados)
 ng g m NombreModulo
+ng g m admin --routing  //modulo para rutas
 
 //comando para crear un guardian (control de acceso)
 ng g g NombreGuardian
 
 //comando para crear una directiva (manejo de propiedades DOM)
 ng g d NombreDirectiva
+
+//comando para generar formulario con angular material desing
+ng g @angular/material:address-form Ruta/NombreComponente
+
+//comando para generar navegacion con angular material desing
+ng g @angular/material:nav Ruta/NombreComponente
 
 //comando para revisar compilacion de angular 
 ng serve --aot
