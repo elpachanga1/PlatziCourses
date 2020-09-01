@@ -1,32 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { AdminRoutingModule } from './admin-routing.module';
-import { ProductFormComponent } from './Components/product-form/product-form.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { MaterialModule } from '../material/material.module';
+import { AdminRoutingModule } from './admin-routing.module';
+
 import { NavComponent } from './Components/nav/nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
+import { ProductFormComponent } from './Components/product-form/product-form.component';
+import { ProductListComponent } from './Components/product-list/product-list.component';
+import { DashboardComponent} from './Components/dashboard/dashboard.component';
+import { TableComponent } from './Components/table/table.component';
+import { AdminProductFormComponent } from './Components/admin-product-form/admin-product-form.component';
+import { AdminProductFormEditComponent } from './Components/admin-product-form-edit/admin-product-form-edit.component';
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent],
+  declarations: [
+    ProductFormComponent,
+    NavComponent,
+    ProductListComponent,
+    DashboardComponent,
+    TableComponent,
+    AdminProductFormComponent,
+    AdminProductFormEditComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
-    MaterialModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    MaterialModule
   ]
 })
 export class AdminModule { }
