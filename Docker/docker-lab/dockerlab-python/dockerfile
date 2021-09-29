@@ -1,0 +1,23 @@
+# Add the hello world file and execute upon container launch
+# get last ubuntu version0
+FROM ubuntu:latest
+
+# author
+MAINTAINER elpachanga1
+
+# get necessary packages
+RUN apt-get update
+
+# install some packages
+RUN apt-get install -y python python3-pip
+
+RUN pip install --upgrade pip
+
+# add desired file
+ADD hello.py C:/Code/docker-lab/hello.py
+
+# add work directory
+WORKDIR C:/Code/docker-lab
+
+# execute file
+CMD python hello.py
